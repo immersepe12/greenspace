@@ -34,17 +34,26 @@ npm run serve      # preview the built ./out locally
 
 Keyword architecture and the full go-live reconciliation live in the design-reference repo's `docs/seo/`.
 
-## Deploy (GitHub Pages)
+## Deploy (Vercel — primary)
 
-Pushing to `main` runs `.github/workflows/deploy.yml` (build → upload `out/` → deploy).
+1. **Import** the `immersepe12/greenspace` repo in Vercel (New Project). It auto-detects Next.js + `output: 'export'`; no build config needed. Every push to `main` redeploys.
+2. **Redirects** are handled by `vercel.json` as real **301s** at the edge (press permalinks + duplicate herb variants + favicon), generated from `content/redirects.json`.
+3. **Domain:** add `www.greenspaceherbs.com` (primary) and `greenspaceherbs.com` (Vercel auto-redirects apex → www) under Project → Domains, then set the DNS records Vercel shows.
 
-**One-time setup in the GitHub repo:**
-1. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
-2. **Custom domain:** the build writes `CNAME` (`www.greenspaceherbs.com`). Point DNS `www` (CNAME) at `immersepe12.github.io`, then set the custom domain under Settings → Pages and enable **Enforce HTTPS**.
+`vercel.json` regeneration after editing `content/redirects.json`:
+```bash
+python3 - <<'PY'
+import json
+r=json.load(open("content/redirects.json"))
+red=[{"source":"/"+k.strip("/"),"destination":v,"permanent":True} for k,v in r.items()]
+red.append({"source":"/favicon.ico","destination":"/wp-content/uploads/2025/04/fab.png","permanent":False})
+json.dump({"$schema":"https://openapi.vercel.sh/vercel.json","framework":"nextjs","trailingSlash":True,"redirects":red},open("vercel.json","w"),indent=2)
+PY
+```
 
-## Redirects note
+### GitHub Pages (alternative)
 
-GitHub Pages serves the meta-refresh stubs as ~soft redirects (Google treats an instant meta-refresh as a permanent redirect, but a true 301 is stronger). For hard 301s, front the site with **Cloudflare** (free) and move `content/redirects.json` into a Cloudflare `_redirects` / Bulk Redirect list — same map, real 301 status.
+`.github/workflows/deploy.yml` (kept as `deploy-workflow.yml.txt`) + the meta-refresh stubs / `CNAME` / `.nojekyll` written by `postbuild.mjs` support a GitHub Pages deploy. There, redirects are soft (meta-refresh); front with **Cloudflare** for hard 301s. On Vercel these artifacts are harmless and unused.
 
 ## Images
 
