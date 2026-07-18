@@ -80,6 +80,29 @@ function firstMatch(re: RegExp, s: string): string {
   return m ? m[1].trim() : "";
 }
 
+// Decode HTML entities in extracted title/description text. These strings go
+// through the Next Metadata API, which re-escapes them — so if we leave the raw
+// entity in, "&amp;" becomes "&amp;amp;". The body HTML is rendered raw and is
+// unaffected. Keep this to plain-text metadata only.
+const NAMED: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  mdash: "—", ndash: "–", trade: "™", reg: "®", copy: "©",
+  hellip: "…", rsquo: "’", lsquo: "‘", ldquo: "“",
+  rdquo: "”", deg: "°", times: "×", eacute: "é",
+};
+function decodeEntities(s: string): string {
+  return s.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (m, ent: string) => {
+    if (ent[0] === "#") {
+      const code =
+        ent[1] === "x" || ent[1] === "X"
+          ? parseInt(ent.slice(2), 16)
+          : parseInt(ent.slice(1), 10);
+      return Number.isFinite(code) ? String.fromCodePoint(code) : m;
+    }
+    return ent in NAMED ? NAMED[ent] : m;
+  });
+}
+
 async function injectPartials(html: string): Promise<string> {
   if (!html.includes("<!--#")) return html;
   const p = await partials();
@@ -103,10 +126,14 @@ export async function getPage(repo: string): Promise<PageData | null> {
   const cfg = await config();
 
   const head = firstMatch(/<head[^>]*>([\s\S]*?)<\/head>/i, raw);
-  const title = firstMatch(/<title>([\s\S]*?)<\/title>/i, head) || "GreenSpace Herbs";
-  const description = firstMatch(
-    /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i,
-    head
+  const title =
+    decodeEntities(firstMatch(/<title>([\s\S]*?)<\/title>/i, head)) ||
+    "GreenSpace Herbs";
+  const description = decodeEntities(
+    firstMatch(
+      /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']\s*\/?>/i,
+      head
+    )
   );
 
   // body open tag + inner
