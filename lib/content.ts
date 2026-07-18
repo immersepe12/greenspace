@@ -15,6 +15,7 @@ type BuildConfig = {
   redirectRepos: string[]; // repo basenames (no .html) that redirect -> excluded from render
   exclude: string[];
   noindex: string[];
+  canonicals?: Record<string, string>; // repo -> preferred canonical path (dedup duplicate titles)
 };
 
 let _cfg: BuildConfig | null = null;
@@ -166,13 +167,15 @@ export async function getPage(repo: string): Promise<PageData | null> {
 
   const slugPath = repoToPath(repo);
   const noindex = cfg.noindex.includes(repo);
+  // dedup duplicate-title clusters: point non-preferred pages at the canonical
+  const canonicalPath = cfg.canonicals?.[repo] ?? slugPath;
 
   return {
     repo,
     slugPath,
     title,
     description,
-    canonical: SITE_ORIGIN + slugPath,
+    canonical: SITE_ORIGIN + canonicalPath,
     bodyClass,
     headLinks,
     headStyles,
@@ -193,9 +196,13 @@ export async function listRenderRepos(): Promise<string[]> {
     .sort();
 }
 
-// Repos that are rendered AND indexable (for the sitemap).
+// Repos that are rendered AND indexable (for the sitemap). Excludes noindex
+// pages and duplicates that canonicalize to a different URL.
 export async function listIndexableRepos(): Promise<string[]> {
   const cfg = await config();
   const noindex = new Set(cfg.noindex);
-  return (await listRenderRepos()).filter((r) => !noindex.has(r));
+  const canonicalized = new Set(Object.keys(cfg.canonicals ?? {}));
+  return (await listRenderRepos()).filter(
+    (r) => !noindex.has(r) && !canonicalized.has(r)
+  );
 }

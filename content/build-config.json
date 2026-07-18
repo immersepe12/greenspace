@@ -45,5 +45,10 @@
     "category_consumer",
     "category_carees",
     "author_green_space"
-  ]
+  ],
+  "canonicals": {
+    "personal-assistant-executive": "/careers/personal-assistant-executive/",
+    "eclipta-alba-linn-hassk": "/eclipta-alba-linn/",
+    "centella-asiatica-linn-mandukaparni-family-apiaceae": "/centella-asiatica-mandukaparni/"
+  }
 }

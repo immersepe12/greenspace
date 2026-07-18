@@ -1,0 +1,6 @@
+[
+  { "source": "/about-us", "destination": "/about/", "permanent": true },
+  { "source": "/blog/page/:n*", "destination": "/blog/", "permanent": true },
+  { "source": "/category/:cat/page/:n*", "destination": "/category/:cat/", "permanent": true },
+  { "source": "/author/green_space/page/:n*", "destination": "/author/green_space/", "permanent": true }
+]

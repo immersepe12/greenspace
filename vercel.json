@@ -399,6 +399,26 @@
       "permanent": true
     },
     {
+      "source": "/about-us",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/page/:n*",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:cat/page/:n*",
+      "destination": "/category/:cat/",
+      "permanent": true
+    },
+    {
+      "source": "/author/green_space/page/:n*",
+      "destination": "/author/green_space/",
+      "permanent": true
+    },
+    {
       "source": "/favicon.ico",
       "destination": "/wp-content/uploads/2025/04/fab.png",
       "permanent": false
