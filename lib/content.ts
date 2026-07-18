@@ -27,6 +27,126 @@ async function config(): Promise<BuildConfig> {
   return _cfg!;
 }
 
+type RelatedLink = { href: string; label: string };
+let _related: Record<string, RelatedLink[]> | null = null;
+async function relatedMap(): Promise<Record<string, RelatedLink[]>> {
+  if (_related) return _related;
+  try {
+    _related = JSON.parse(
+      await fs.readFile(path.join(ROOT, "content", "related.json"), "utf-8")
+    );
+  } catch {
+    _related = {};
+  }
+  return _related!;
+}
+
+function renderRelated(links: RelatedLink[]): string {
+  const items = links
+    .map(
+      (l) =>
+        `<a class="related-link" href="${l.href}">${l.label}<span aria-hidden="true">→</span></a>`
+    )
+    .join("");
+  return `\n<section class="section related-explore" aria-label="Explore more"><div class="wrap"><p class="eyebrow">Explore more</p><div class="related-grid">${items}</div></div></section>\n`;
+}
+
+let _categories: Record<string, string> | null = null;
+async function categories(): Promise<Record<string, string>> {
+  if (_categories) return _categories;
+  try {
+    _categories = JSON.parse(
+      await fs.readFile(path.join(ROOT, "content", "_categories.json"), "utf-8")
+    );
+  } catch {
+    _categories = {};
+  }
+  return _categories!;
+}
+
+// Per-page JSON-LD: BreadcrumbList (from the URL path) + a type-specific node.
+function buildJsonLd(
+  repo: string,
+  cat: string,
+  title: string,
+  description: string,
+  canonical: string
+): object[] {
+  const nodes: object[] = [];
+
+  // Breadcrumb from path segments
+  const segs = repo === "__home" ? [] : repo.split("_");
+  const crumbs: { "@type": string; position: number; name: string; item: string }[] = [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_ORIGIN}/` },
+  ];
+  let acc = "";
+  segs.forEach((s, i) => {
+    acc += "/" + s;
+    crumbs.push({
+      "@type": "ListItem",
+      position: i + 2,
+      name:
+        i === segs.length - 1
+          ? title
+          : s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      item: `${SITE_ORIGIN}${acc}/`,
+    });
+  });
+  if (crumbs.length > 1)
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: crumbs,
+    });
+
+  const publisher = { "@type": "Organization", name: "GreenSpace Herbs", "@id": `${SITE_ORIGIN}/#organization` };
+  const isRoleDetail = cat === "CAREERS" && repo !== "careers";
+
+  if (cat === "HERB" || cat === "BLOG" || cat === "SCIENCE") {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: description || undefined,
+      mainEntityOfPage: canonical,
+      author: publisher,
+      publisher,
+      inLanguage: "en-US",
+    });
+  } else if (cat === "PRODUCT") {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: title,
+      description: description || undefined,
+      brand: { "@type": "Brand", name: "GreenSpace Herbs" },
+      manufacturer: publisher,
+      url: canonical,
+    });
+  } else if (isRoleDetail) {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title,
+      description: description || title,
+      datePosted: "2026-07-01",
+      validThrough: "2026-12-31",
+      employmentType: "FULL_TIME",
+      hiringOrganization: publisher,
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Bengaluru",
+          addressCountry: "IN",
+        },
+      },
+      directApply: false,
+    });
+  }
+  return nodes;
+}
+
 let _partials: { head: string; header: string; footer: string } | null = null;
 async function partials() {
   if (_partials) return _partials;
@@ -74,6 +194,7 @@ export type PageData = {
   headStyles: string[]; // page-specific inline <style> css text
   bodyHtml: string; // <body> inner, partials injected, concierge appended
   noindex: boolean;
+  jsonLd: object[]; // per-page structured data (Breadcrumb + type node)
 };
 
 function firstMatch(re: RegExp, s: string): string {
@@ -149,6 +270,18 @@ export async function getPage(repo: string): Promise<PageData | null> {
     bodyHtml = raw;
   }
   bodyHtml = await injectPartials(bodyHtml);
+
+  // Inject the "Explore more" internal-link module before the footer.
+  const rel = (await relatedMap())[repo];
+  if (rel && rel.length) {
+    const block = renderRelated(rel);
+    const fi = bodyHtml.search(/<footer[\s>]/i);
+    bodyHtml =
+      fi === -1
+        ? bodyHtml + block
+        : bodyHtml.slice(0, fi) + block + bodyHtml.slice(fi);
+  }
+
   if (!bodyHtml.includes("/redesign/concierge.js")) bodyHtml += CONCIERGE;
 
   // page-specific CSS from <head>: keep non-global stylesheet links + inline styles
@@ -169,13 +302,17 @@ export async function getPage(repo: string): Promise<PageData | null> {
   const noindex = cfg.noindex.includes(repo);
   // dedup duplicate-title clusters: point non-preferred pages at the canonical
   const canonicalPath = cfg.canonicals?.[repo] ?? slugPath;
+  const canonical = SITE_ORIGIN + canonicalPath;
+  const cat = (await categories())[repo] ?? "";
+  const jsonLd = noindex ? [] : buildJsonLd(repo, cat, title, description, canonical);
 
   return {
     repo,
     slugPath,
     title,
     description,
-    canonical: SITE_ORIGIN + canonicalPath,
+    canonical,
+    jsonLd,
     bodyClass,
     headLinks,
     headStyles,

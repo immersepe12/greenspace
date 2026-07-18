@@ -53,6 +53,14 @@ export default async function Page({
 
   return (
     <>
+      {/* per-page structured data */}
+      {page.jsonLd.map((node, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
+        />
+      ))}
       {/* apply the source page's <body> class before content paints */}
       {page.bodyClass ? (
         <script
