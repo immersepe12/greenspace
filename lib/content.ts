@@ -70,7 +70,8 @@ function buildJsonLd(
   cat: string,
   title: string,
   description: string,
-  canonical: string
+  canonical: string,
+  image?: string
 ): object[] {
   const nodes: object[] = [];
 
@@ -108,9 +109,11 @@ function buildJsonLd(
       "@type": "Article",
       headline: title,
       description: description || undefined,
+      image: image || undefined,
       mainEntityOfPage: canonical,
       author: publisher,
       publisher,
+      dateModified: "2026-07-18",
       inLanguage: "en-US",
     });
   } else if (cat === "PRODUCT") {
@@ -119,6 +122,7 @@ function buildJsonLd(
       "@type": "Product",
       name: title,
       description: description || undefined,
+      image: image || undefined,
       brand: { "@type": "Brand", name: "GreenSpace Herbs" },
       manufacturer: publisher,
       url: canonical,
@@ -304,7 +308,21 @@ export async function getPage(repo: string): Promise<PageData | null> {
   const canonicalPath = cfg.canonicals?.[repo] ?? slugPath;
   const canonical = SITE_ORIGIN + canonicalPath;
   const cat = (await categories())[repo] ?? "";
-  const jsonLd = noindex ? [] : buildJsonLd(repo, cat, title, description, canonical);
+  // first real content image (hero/figure) for Article/Product schema — skip
+  // logos, icons and inline data-URIs.
+  let image: string | undefined;
+  for (const m of bodyHtml.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)) {
+    const src = m[1];
+    if (src.startsWith("data:")) continue;
+    if (/logo|g-w-logo|fab\.png|\.svg$/i.test(src)) continue;
+    if (/\/wp-content\/uploads\/|\/redesign\/(landing|brand)\//i.test(src)) {
+      image = src.startsWith("http") ? src : SITE_ORIGIN + src;
+      break;
+    }
+  }
+  const jsonLd = noindex
+    ? []
+    : buildJsonLd(repo, cat, title, description, canonical, image);
 
   return {
     repo,
