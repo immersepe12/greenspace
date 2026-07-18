@@ -1,0 +1,407 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/greenspace-herbs-positions-quantum-ayurveda-as-a-distinct-processing-category-within-modern-herbal-science",
+      "destination": "https://www.themanufacturingfrontier.com/greenspace-herbs-positions-quantum-ayurveda-as-a-distinct-processing-category-within-modern-herbal-science/",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing-5",
+      "destination": "https://globalbiznewsroom.com/business/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing-4",
+      "destination": "https://businessnewsthisweek.com/business/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing-3",
+      "destination": "https://businessnewsforprofit.com/business/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing-2",
+      "destination": "https://businessnewschronicle.com/business/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing",
+      "destination": "https://www.pninews.com/quantum-is-the-new-norm-in-ayurveda-greenspace-herbs-opens-a-new-category-in-clean-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-introduces-quantum-ayurveda-processing",
+      "destination": "https://fashionvaluechain.com/greenspace-herbs-introduces-quantum-ayurveda-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-launches-curcumin-qa-claims-breakthrough-in-turmeric-absorption-2",
+      "destination": "https://nuffoodsspectrum.asia/2026/04/22/greenspace-herbs-launches-curcumin-qa-claims-breakthrough-in-turmeric-absorption.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-launches-worlds-first-quantum-enhanced-curcumin-supplements",
+      "destination": "https://americanbazaaronline.com/2026/04/23/greenspace-herbs-launches-worlds-first-quantum-enhanced-curcumin-supplements-479562/",
+      "permanent": true
+    },
+    {
+      "source": "/indias-nutraceutical-market-sees-entry-of-quantum-enhanced-curcumin-formulation",
+      "destination": "https://www.indianpharmapost.com/news/indias-nutraceutical-market-sees-entry-of-quantum-enhanced-curcumin-formulation-19890",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-launches-curcumin-qa-claims-breakthrough-in-turmeric-absorption",
+      "destination": "https://nuffoodsspectrum.asia/2026/04/22/greenspace-herbs-launches-curcumin-qa-claims-breakthrough-in-turmeric-absorption.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-launches-curcumin-qa-designed-for-higher-absorption-at-lower-doses",
+      "destination": "https://www.pharmabiz.com/NewsDetails.aspx?aid=185535&#038;sid=2",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda-5",
+      "destination": "https://businessnewsthisweek.com/news/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda-4",
+      "destination": "https://businessmicro.in/news/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda-3",
+      "destination": "https://mediaexpress24.com/news/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-ashwagandha-qa-the-worlds-first-quantum-physics-applied-ayurvedic-supplement",
+      "destination": "https://newslocalbiz.com/news/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda-2",
+      "destination": "https://onlinenews9.in/news/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda",
+      "destination": "https://smartbusinesnews.com/news/greenspace-launches-ashwagandha-qa-pioneering-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-ashwagandha-qa-ayurveda-supplement-ingredient-backed-by-clinical-evaluation",
+      "destination": "https://www.pharmabiz.com/NewsDetails.aspx?aid=184141&#038;sid=2",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-ashwagandha-qa",
+      "destination": "https://nuffoodsspectrum.in/2026/02/11/greenspace-herbs-unveils-ashwagandha-qa.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-launches-ashwagandha-qa-positioning-it-as-the-worlds-first-quantum-physics-applied-ayurveda-supplement-ingredient-backed-by-clinical-evaluation",
+      "destination": "https://fooddrinkinnovations.com/news-pr/greenspace-herbs-launches-ashwagandha-qa-positioning-it-as-the-worlds-first-quantum-physics-applied-ayurveda-supplement-ingredient-backed-by-clinical-evaluation/",
+      "permanent": true
+    },
+    {
+      "source": "/union-budget-2026-27-powering-indias-food-value-chain",
+      "destination": "https://nuffoodsspectrum.in/2026/02/01/food-sector-hails-budget-2026-27.html",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-experts-have-welcomed-the-union-budget-2026-27",
+      "destination": "https://modernmedihealth.com/healthcare-experts-have-welcomed-the-union-budget-2026-27/",
+      "permanent": true
+    },
+    {
+      "source": "/fm-nirmala-sitharaman-to-present-union-budget-2026-27-in-lok-sabha-today",
+      "destination": "https://thenewsstrike.com/fm-nirmala-sitharaman-to-present-union-budget-202627-in-lok-sabha-today",
+      "permanent": true
+    },
+    {
+      "source": "/indian-wellness-innovator-greenspace-herbs-bets-on-us-shares-insights-with-the-american-bazaar",
+      "destination": "https://americanbazaaronline.com/2025/12/17/indian-wellness-innovator-greenspace-herbs-bets-on-us-shares-insights-with-the-american-bazaar-471798/",
+      "permanent": true
+    },
+    {
+      "source": "/neem-benefits-explained-why-ayurveda-sees-it-as-a-natural-blood-purifier",
+      "destination": "https://www.indiatvnews.com/health/neem-benefits-ayurveda-blood-purifier-immunity-2025-12-18-1022276",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-opens-u-s-office-in-new-jersey-expands-global-footprint",
+      "destination": "https://mediabrief.com/greenspace-herbs-opens-u-s-office-in-new-jersey-expands-global-footprint/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-opens-new-jersey-office",
+      "destination": "https://nuffoodsspectrum.in/2025/12/17/greenspace-herbs-opens-new-jersey-office.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-opens-us-base-as-global-demand-surges-for-quantum-ayurveda-2",
+      "destination": "https://www.biospectrumindia.com/news/16/27069/greenspace-herbs-opens-us-base-as-global-demand-surges-for-quantum-ayurveda.html",
+      "permanent": true
+    },
+    {
+      "source": "/indian-innovator-greenspace-herbs-opens-u-s-base-as-global-demand-surges",
+      "destination": "https://nuffoodsspectrum.asia/2025/12/15/indian-innovator-greenspace-herbs-opens-u-s-base-as-global-demand-surges.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-opens-us-base-as-global-demand-surges-for-quantum-ayurveda",
+      "destination": "https://www.pharmabiz.com/NewsDetails.aspx?aid=183044&#038;sid=2",
+      "permanent": true
+    },
+    {
+      "source": "/healthbrief-exclusive-shafiulla-hirehal-greenspace-herbs-bets-on-ai-spectroscopy-and-clinical-validation-to-redefine-ayurveda-for-the-world",
+      "destination": "https://mediabrief.com/healthbrief-exclusive-shafiulla-hirehal-of-greenspace-herbs/",
+      "permanent": true
+    },
+    {
+      "source": "/indias-herbal-opportunity-is-about-verifiable-identity-measurable-readiness-and-reliable-outcomes-shafiulla-hirehal-managing-director-greenspace-herbs",
+      "destination": "https://nuffoodsspectrum.in/2025/11/05/indias-herbal-opportunity-is-about-verifiable-identity-measurablereadiness-and-reliable-outcomes-shafiulla-hirehal-managing-director-greenspace-herbs.html",
+      "permanent": true
+    },
+    {
+      "source": "/gotu-kola-explained-the-leaf-that-strengthens-heals-and-brightens-skin",
+      "destination": "https://www.news18.com/lifestyle/beauty/gotu-kola-explained-the-leaf-that-strengthens-heals-and-brightens-skin-ws-el-9682830.html",
+      "permanent": true
+    },
+    {
+      "source": "/india-unveils-first-white-paper-on-quantum-ayurveda-greenspace-herbs-launches-qa-products",
+      "destination": "https://www.bwwellbeingworld.com/article/india-unveils-first-white-paper-on-quantum-ayurveda-greenspace-herbs-launches-qa-products-579332",
+      "permanent": true
+    },
+    {
+      "source": "/india-chamber-unveils-white-paper-on-quantum-ayurveda-as-greenspace-herbs-launches-worlds-first-qa-products-in-us-and-india",
+      "destination": "https://mediabrief.com/india-chamber-unveils-white-paper-on-quantum-ayurveda-as-greenspace-herbs-launches-worlds-first-qa-products-in-us-and-india/",
+      "permanent": true
+    },
+    {
+      "source": "/how-quantum-ayurveda-and-ai-are-advancing-energy-based-wellness",
+      "destination": "https://www.healthcarebusinesstoday.com/quantum-ayurveda-energy-wellness-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/energy-is-the-new-nutrition-how-quantum-ayurveda-is-redefining-wellness-for-the-modern-yogi",
+      "destination": "https://yogalifelive.com/energy-is-the-new-nutrition-how-quantum-ayurveda-is-redefining-wellness-for-the-modern-yogi/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-enters-south-koreas-5b-supplements-market-with-quantum-ayurveda",
+      "destination": "https://www.socialmediadissect.com/greenspace-enters-south-koreas-5b-supplements-market-with-quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/bengalurus-greenspace-herbs-enters-south-korea-with-quantum-ayurveda",
+      "destination": "https://www.thehindubusinessline.com/economy/agri-business/bengalurus-greenspace-herbs-enters-south-korea-with-quantum-ayurveda/article70041773.ece",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-ayurveda-ancient-wisdom-meets-quantum-science-in-modern-supplements",
+      "destination": "https://www.supplysidesj.com/natural-product-development/quantum-ayurveda-where-ancient-wisdom-meets-quantum-science-in-modern-supplements-article",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-quantum-ayurveda-tech-platform",
+      "destination": "https://nuffoodsspectrum.in/2025/08/13/greenspace-herbs-unveils-quantum-ayurveda-tech-platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform-3",
+      "destination": "https://www.socialmediadissect.com/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform-2",
+      "destination": "https://www.mediainfoline.com/health/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-quantum-ayurveda-technology-platform-to-map-bioactive-signatures-from-plant-compounds",
+      "destination": "https://www.pharmabiz.com/NewsDetails.aspx?aid=180663&#038;sid=2",
+      "permanent": true
+    },
+    {
+      "source": "/the-first-successful-commercialisation-of-quantum-enhanced-botanical-supplements",
+      "destination": "https://www.biospectrumindia.com/news/16/26508/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform",
+      "destination": "https://www.bwwellbeingworld.com/article/greenspace-herbs-unveils-revolutionary-quantum-ayurveda-technology-platform-567037",
+      "permanent": true
+    },
+    {
+      "source": "/a-new-era-for-ayurvedic-science",
+      "destination": "https://www.supplysidesj.com/supplements/a-new-era-for-ayurvedic-science",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-ayurveda-is-merging-tradition-with-science",
+      "destination": "https://www.wholefoodsmagazine.com/articles/17639-quantum-ayurveda-is-merging-tradition-with-science",
+      "permanent": true
+    },
+    {
+      "source": "/ancient-principles-fresh-outlook-greenspace-takes-a-quantum-approach-to-ayurveda",
+      "destination": "https://nutraceuticalbusinessreview.com/greenspace-herbs-quantum-ayurveda",
+      "permanent": true
+    },
+    {
+      "source": "/a-new-era-of-ayurveda-backed-by-quantum-chemistry-and-ai-insights",
+      "destination": "https://www.nutraingredients-usa.com/News/Promotional-features/greenspace-leverages-ai-and-quantum-chemistry-to-advance-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/greenspace-leads-scientific-revival-of-ayurveda-with-new-quantum-based-approach",
+      "destination": "https://www.globenewswire.com/news-release/2025/07/08/3111764/0/en/Greenspace-Leads-Scientific-Revival-of-Ayurveda-With-New-Quantum-Based-Approach.html",
+      "permanent": true
+    },
+    {
+      "source": "/quantum-ayurveda",
+      "destination": "/research-and-science/quantum-ayurveda/",
+      "permanent": true
+    },
+    {
+      "source": "/andrographis-paniculata-burm-f-wall-ex-nees-kalmegh-family-acanthaceae",
+      "destination": "/andrographis-paniculata-kalmegh/",
+      "permanent": true
+    },
+    {
+      "source": "/andrographis-paniculata-burm-f-wall-ex-nees-kalmegh-family-acanthaceae-2",
+      "destination": "/andrographis-paniculata-kalmegh/",
+      "permanent": true
+    },
+    {
+      "source": "/asparagus-racemosus-willd-shatavari-family-liliaceae",
+      "destination": "/asparagus-racemosus-willd-shatavari/",
+      "permanent": true
+    },
+    {
+      "source": "/azadirachta-indica-juss-neem-family-meliaceae",
+      "destination": "/azadirachta-indica-neem/",
+      "permanent": true
+    },
+    {
+      "source": "/bacopa-monnieri",
+      "destination": "/bacopa-monnieri-linn-wettst-brahmi/",
+      "permanent": true
+    },
+    {
+      "source": "/bacopa-monnieri-linn-wettst-brahmi-family-scrophulariaceae",
+      "destination": "/bacopa-monnieri-linn-wettst-brahmi/",
+      "permanent": true
+    },
+    {
+      "source": "/boswellia-serrata",
+      "destination": "/boswellia-serrata-roxb-salaiguggul/",
+      "permanent": true
+    },
+    {
+      "source": "/boswellia-serrata-roxb-salaiguggul-family-burseraceae",
+      "destination": "/boswellia-serrata-roxb-salaiguggul/",
+      "permanent": true
+    },
+    {
+      "source": "/camellia-sinensis-linn-kuntze-green-tea-family-theaceae",
+      "destination": "/camellia-sinensis-kuntze-green-tea/",
+      "permanent": true
+    },
+    {
+      "source": "/cassia-angustifolia-senna-family-caesalpinaceae",
+      "destination": "/cassia-angustifolia-vahl-senna/",
+      "permanent": true
+    },
+    {
+      "source": "/coleus-forskohlii-briq-family-labiatae",
+      "destination": "/coleus-forskohlii/",
+      "permanent": true
+    },
+    {
+      "source": "/eclipta-alba-linn-linn-bhringaraja-family-asteraceae",
+      "destination": "/eclipta-alba-linn/",
+      "permanent": true
+    },
+    {
+      "source": "/emblica-officinalis-gaertn-amla-family-euphorbiaceae",
+      "destination": "/emblica-officinalis-gaertn-amla/",
+      "permanent": true
+    },
+    {
+      "source": "/garcinia-cambogia",
+      "destination": "/garcinia-cambogia-vrikshamla/",
+      "permanent": true
+    },
+    {
+      "source": "/gymnema-sylvestre-r-br-madhunashini-family-asclepiadaceae",
+      "destination": "/gymnema-sylvestre-madhunashini/",
+      "permanent": true
+    },
+    {
+      "source": "/gymnema-sylvestre-retz-r-br",
+      "destination": "/gymnema-sylvestre-madhunashini/",
+      "permanent": true
+    },
+    {
+      "source": "/madhunashini-gymnema-sylvestre",
+      "destination": "/gymnema-sylvestre-madhunashini/",
+      "permanent": true
+    },
+    {
+      "source": "/momordica-charantia-linn-karela-family-cucurbitaceae",
+      "destination": "/momordica-charantia-karela/",
+      "permanent": true
+    },
+    {
+      "source": "/ocimum-sanctum-linn-tulsi-family-lamiaceae",
+      "destination": "/ocimum-sanctum-l-tulsi/",
+      "permanent": true
+    },
+    {
+      "source": "/terminalia-belerica-roxb-bahera-family-combretaceae",
+      "destination": "/terminalia-belerica-bahera/",
+      "permanent": true
+    },
+    {
+      "source": "/terminalia-chebula-family-combretaceae",
+      "destination": "/terminalia-chebula-haritaki/",
+      "permanent": true
+    },
+    {
+      "source": "/tinospora-cordifolia",
+      "destination": "/tinospora-cordifolia-guduchi/",
+      "permanent": true
+    },
+    {
+      "source": "/tribulus-terrestris-linn-chota-gokru-family-zygophyllaceae",
+      "destination": "/tribulus-terrestris-chota-gokhru/",
+      "permanent": true
+    },
+    {
+      "source": "/trigonella-foenum-graecum-linn-fenugreek-family-fabaceae",
+      "destination": "/trigonella-foenum-graecum-fenugreek-methi/",
+      "permanent": true
+    },
+    {
+      "source": "/withania-somnifera-dunal-ashvagandha-family-solonaceae",
+      "destination": "/withania-somnifera-ashwagandha/",
+      "permanent": true
+    },
+    {
+      "source": "/adhatoda-vasica-nees-vasaka-copy-test",
+      "destination": "/adhatoda-vasica-nees-vasaka-family-acanthaceae/",
+      "permanent": true
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/wp-content/uploads/2025/04/fab.png",
+      "permanent": false
+    }
+  ]
+}
