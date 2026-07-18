@@ -1,0 +1,48 @@
+/* Homepage immersive WebGL hero (dark, forest-gold, glows into cream content) */
+.home-3d{background:#04140d}
+.home-3d body{background:#04140d}
+/* transparent floating header over the hero, solid once scrolled */
+.home-3d .header{background:transparent;border-bottom-color:transparent;box-shadow:none}
+.home-3d .header.scrolled{background:rgba(5,31,20,.92);border-bottom-color:rgba(227,191,112,.28);box-shadow:0 14px 40px rgba(5,24,15,.22);backdrop-filter:blur(18px)}
+
+/* let the hero fill behind the transparent sticky header */
+.home-3d main{margin-top:-82px}
+.hero-3d{position:relative;overflow:hidden;min-height:840px;padding-top:142px;
+  background:radial-gradient(120% 130% at 76% 38%, #0b3320 0%, #061e13 52%, #04140d 100%)}
+.hero3d-canvas{position:absolute;inset:0;z-index:0;transition:opacity .25s linear}
+.hero3d-canvas canvas{display:block;width:100%;height:100%}
+.hero3d-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(90deg, rgba(4,18,11,.94) 0%, rgba(4,18,11,.78) 30%, rgba(4,18,11,.34) 54%, rgba(4,18,11,0) 80%),
+  linear-gradient(0deg, rgba(4,18,11,.85) 0%, rgba(4,18,11,0) 26%, rgba(4,18,11,0) 72%, rgba(4,18,11,.5) 100%)}
+.hero-3d .hero-content{position:relative;z-index:5;min-height:672px;display:flex;align-items:center}
+.hero-3d .hero-copy{max-width:608px;padding-top:24px}
+
+/* copy on dark */
+.hero-3d .hero-tagline{color:#cfe2d6}
+.hero-3d .hero-tagline strong{color:var(--gold)}
+.hero-3d .hero-copy h1{color:#fdf7ea;text-shadow:0 12px 44px rgba(0,0,0,.55)}
+.hero-3d .hero-copy h1 span{color:var(--gold);text-shadow:0 0 34px rgba(230,192,116,.35)}
+.hero-3d .hero-copy .lead{color:rgba(243,234,214,.85)}
+.hero-3d .badge{background:rgba(255,248,235,.08);border-color:rgba(227,191,112,.5);color:#f1dbb0;backdrop-filter:blur(8px)}
+.hero-3d .badge:before{background:var(--gold)}
+.hero-3d .hero-pills span{background:rgba(255,248,237,.07);border-color:rgba(227,191,112,.32);color:#dfeae0;backdrop-filter:blur(10px)}
+.hero-3d .hero-pills span b{color:#fdf7ea}
+.hero-3d .btn-light{background:rgba(255,255,255,.1);color:#fdf7ea;border-color:rgba(227,191,112,.5)}
+.hero-3d .btn-light:hover{background:rgba(255,255,255,.18)}
+
+/* soft seam into the cream content below */
+.hero-3d:after{content:'';position:absolute;left:0;right:0;bottom:0;height:90px;z-index:2;pointer-events:none;background:linear-gradient(0deg, var(--cream) 0%, rgba(251,244,232,.0) 100%)}
+
+/* fallback: no WebGL → keep a rich dark gold glow */
+.no-webgl .hero3d-canvas{display:none}
+.no-webgl .hero-3d{background:
+  radial-gradient(60% 80% at 74% 42%, rgba(201,151,57,.22), transparent 60%),
+  radial-gradient(120% 130% at 76% 38%, #0b3320 0%, #061e13 52%, #04140d 100%)}
+
+@media (max-width:900px){ .hero-3d{min-height:720px} .hero-3d .hero-content{min-height:600px} }
+@media (max-width:680px){
+  .hero-3d{min-height:640px}
+  .hero-3d .hero-content{min-height:540px;align-items:flex-start}
+  .hero3d-wash{background:linear-gradient(180deg, rgba(4,18,11,.55) 0%, rgba(4,18,11,.2) 40%, rgba(4,18,11,.82) 100%)}
+  .hero-3d .hero-copy h1{font-size:clamp(38px,9.4vw,46px)}
+}

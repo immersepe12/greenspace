@@ -1,0 +1,73 @@
+/* =====================================================================
+   Homepage — light, luxurious, scroll-mapped.
+   Warm-white page with a fixed gold quantum-Ayurvedic line-art canvas
+   that evolves with scroll; every section floats over it and reveals.
+   ===================================================================== */
+
+.home-scroll{background:#fbf6ec}
+.home-scroll body{background:#fbf6ec;color:var(--ink)}
+
+/* fixed scroll-reactive gold background */
+.home-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.home-bg canvas{display:block;width:100%;height:100%}
+
+/* content floats above the background; let the canvas show through */
+.home-scroll .site{position:relative;z-index:1;background:transparent;overflow:visible}
+.home-scroll main section{background:transparent}
+.home-scroll .metrics,.home-scroll .data-section,.home-scroll .products,
+.home-scroll .compare,.home-scroll .evidence,.home-scroll .process,
+.home-scroll .section.alt,.home-scroll .section.spacious,.home-scroll .logo-strip{background:transparent}
+/* the css quantum motifs are replaced by the live canvas */
+.home-scroll .section.spacious:before,.home-scroll .data-section:before,
+.home-scroll .process:before,.home-scroll .compare:before,
+.home-scroll .evidence:before,.home-scroll .products:before{display:none !important}
+.home-scroll .section{border-top-color:rgba(201,151,57,.16)}
+
+/* dense content keeps a soft, readable luxe panel */
+.home-scroll .form-card,.home-scroll .chart,.home-scroll .data-card,
+.home-scroll .metric,.home-scroll .product-card,.home-scroll .compare-card,
+.home-scroll .evidence-card{background:rgba(255,253,247,.82);backdrop-filter:blur(3px)}
+.home-scroll .metrics-grid{background:rgba(255,253,247,.6);backdrop-filter:blur(4px)}
+.home-scroll .product-media{background:#0b3823}
+.home-scroll .compare-card.green{background:linear-gradient(145deg,#0b3823,#062316)}
+
+/* ---------- header: stays solid forest, a crisp anchor on the light page ---------- */
+.home-scroll .header{background:linear-gradient(90deg,#052315,#0b3723)}
+
+/* ============ HERO (light) ============ */
+.hero-light{position:relative;overflow:hidden;min-height:820px;padding:120px 0 90px;background:transparent}
+.hero-light .hero-content{position:relative;z-index:5;min-height:620px;display:flex;align-items:center}
+.hero-light .hero-copy{max-width:600px}
+.hero-light .hero-tagline{font-family:var(--display);font-size:19px;letter-spacing:.02em;color:#3a5142;margin:0 0 22px;display:flex;align-items:center;gap:12px}
+.hero-light .hero-tagline .qa-mark{width:26px;height:26px;flex:0 0 auto;opacity:.95}
+.hero-light .hero-tagline strong{font-weight:400;color:var(--gold)}
+.hero-light .badge{background:rgba(255,250,240,.6);border-color:rgba(201,151,57,.55);color:#3a5142;backdrop-filter:blur(6px)}
+.hero-light .hero-copy h1{color:var(--forest-deep)}
+.hero-light .hero-copy h1 span{color:var(--gold);text-shadow:0 0 30px rgba(201,151,57,.18)}
+.hero-light .gold-rule{width:64px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,151,57,0));margin:6px 0 22px}
+.hero-light .hero-copy .lead{color:#41514a}
+.hero-light .hero-pills span{background:rgba(255,250,240,.5);border-color:rgba(201,151,57,.34);color:#3a5142;backdrop-filter:blur(8px)}
+.hero-light .hero-pills span b{color:var(--forest-deep)}
+.hero-light .btn-light{background:rgba(255,255,255,.55);color:var(--ink);border-color:rgba(201,151,57,.5)}
+
+/* scroll cue */
+.home-cue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:9px;font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#7a7053;transition:opacity .5s ease}
+.home-cue .mouse{width:23px;height:36px;border:1px solid rgba(120,100,50,.5);border-radius:13px;position:relative}
+.home-cue .mouse:before{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;background:var(--gold);transform:translateX(-50%);animation:homewheel 1.6s ease-in-out infinite}
+@keyframes homewheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translate(-50%,11px)}}
+.home-scrolled .home-cue{opacity:0}
+
+/* thin scroll progress line */
+.home-progress{position:fixed;left:0;top:0;height:2px;z-index:200;width:0;background:linear-gradient(90deg,#a8761f,var(--gold-soft));box-shadow:0 0 10px rgba(201,151,57,.4)}
+
+/* keep cream content readable; the brand-film & cta stay as designed */
+.home-scroll .cta-band{background:linear-gradient(90deg,#052315,#0b3723)}
+.home-scroll .video-feature{background:#06301d}
+
+@media (max-width:900px){ .hero-light{min-height:680px;padding:100px 0 70px} .hero-light .hero-content{min-height:520px} }
+@media (max-width:680px){
+  .hero-light{min-height:600px;padding:80px 0 56px}
+  .hero-light .hero-content{min-height:460px;align-items:flex-start}
+  .home-cue{display:none}
+}
+@media (prefers-reduced-motion: reduce){ .home-cue .mouse:before{animation:none} }

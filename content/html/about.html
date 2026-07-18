@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — GreenSpace Herbs</title>
+<meta name="description" content="GreenSpace Herbs is a next-generation herbal therapeutics company bridging the timeless efficacy of Ayurveda with the precision of modern biomedical science through Quantum Ayurveda." />
+<!--#HEAD#-->
+<style>
+  /* Anchor scroll offsets so the sticky header doesn't cover deep-link targets */
+  #what-we-do,#who-we-are,#our-journey,#founder,#why-it-matters{scroll-margin-top:100px}
+
+  /* ── Who We Are ── */
+  .ab-who{padding:90px 0}
+  .ab-who .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+  .ab-who h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,46px);line-height:1.1;color:var(--forest-deep);margin:0 0 24px}
+  .ab-who p{font-family:var(--body);color:#3b4a3f;font-size:16px;line-height:1.78;margin:0 0 16px}
+  .ab-who .frame{border-radius:18px;overflow:hidden;box-shadow:0 26px 60px rgba(34,25,10,.10);min-height:420px}
+  .ab-who .frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ── What We Do ── */
+  .ab-wwd{padding:0 0 90px;position:relative}
+  .ab-wwd .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:stretch;min-height:520px;border-radius:0;overflow:visible}
+  .ab-wwd .frame{position:relative;overflow:hidden;border-radius:0;min-height:520px}
+  .ab-wwd .frame img{width:100%;height:100%;object-fit:cover;display:block;min-height:520px}
+  .ab-wwd .panel{background:linear-gradient(135deg,#1e5a3a 0%,#0b3d24 100%);color:rgba(255,255,255,.92);padding:64px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .ab-wwd .panel:before{content:'';position:absolute;right:-80px;top:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,.06), transparent 70%);pointer-events:none}
+  .ab-wwd .panel h2{color:#fff;font-family:var(--display);font-weight:400;font-size:clamp(32px,3.4vw,42px);line-height:1.1;margin:0 0 22px}
+  .ab-wwd .panel p{font-size:15.5px;line-height:1.75;color:rgba(255,255,255,.92);margin:0 0 15px}
+
+  /* ── Founder · Our Journey opener ── */
+  .ab-founder{background:linear-gradient(180deg,#fffdf8,#f7eede);padding:96px 0}
+  .ab-founder .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+  .ab-founder .copy{background:rgba(255,253,248,.7);border:1px solid rgba(201,151,57,.18);border-radius:18px;padding:48px 44px;box-shadow:0 18px 46px rgba(34,25,10,.06)}
+  .ab-founder h2{font-family:var(--display);font-weight:400;font-size:clamp(32px,3.4vw,44px);line-height:1.15;color:var(--forest-deep);margin:0 0 12px}
+  .ab-founder .sub{display:block;font-family:var(--display);font-style:italic;color:var(--gold);font-size:19px;margin:0 0 22px}
+  .ab-founder p{font-family:var(--body);color:#3b4a3f;font-size:14.5px;line-height:1.78;margin:0 0 14px}
+  .ab-founder .frame{border-radius:18px;overflow:hidden;min-height:480px;box-shadow:0 26px 60px rgba(34,25,10,.12)}
+  .ab-founder .frame img{width:100%;height:100%;object-fit:cover;display:block;min-height:480px}
+
+  /* ── Timeline · alternating ── */
+  .ab-tl-section{background:linear-gradient(180deg,#fffaf0,#f6ecdc);padding:100px 0;position:relative;overflow:hidden}
+  .ab-tl-section:before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 80% 20%,rgba(194,145,47,.06),transparent 40%),radial-gradient(circle at 20% 80%,rgba(31,107,69,.05),transparent 35%);pointer-events:none}
+  .ab-tl-section .wrap{position:relative;z-index:2}
+  .ab-tl-section h2{text-align:center;font-family:var(--display);font-weight:400;font-size:clamp(32px,3.4vw,46px);color:var(--forest-deep);margin:0 0 60px}
+
+  .ab-timeline{position:relative;max-width:1080px;margin:0 auto}
+  /* central spine — base rail */
+  .ab-tl-spine{position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(201,151,57,.18);transform:translateX(-50%);z-index:1;border-radius:2px;overflow:hidden}
+  /* gold progress fill that grows downward with scroll */
+  .ab-tl-fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,#e3bf70 0%,#c2912f 100%);box-shadow:0 0 14px rgba(194,145,47,.55);transition:height .12s linear;border-radius:2px}
+  .ab-tl-fill:after{content:'';position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:#fff7d6;box-shadow:0 0 18px rgba(227,191,112,.95);opacity:0;transition:opacity .25s ease}
+  .ab-tl-fill.lit:after{opacity:1}
+
+  /* Reveal animations — cards slide in from their side, year fades up */
+  .ab-tlrow[data-reveal]{opacity:0;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  .ab-tlrow.left[data-reveal]{transform:translateX(-46px)}
+  .ab-tlrow.right[data-reveal]{transform:translateX(46px)}
+  .ab-tlrow[data-reveal].in{opacity:1;transform:none}
+
+  /* Year pill behaviour */
+  .ab-tlrow .year{transition:transform .4s ease, box-shadow .4s ease, background .4s ease}
+  .ab-tlrow.in-view .year{background:linear-gradient(135deg,#e3bf70 0%,#c2912f 100%);transform:scale(1.08);box-shadow:0 18px 38px rgba(194,145,47,.55),0 0 0 7px rgba(194,145,47,.16)}
+  .ab-tlrow .year:before{transition:background .4s ease, box-shadow .4s ease}
+  .ab-tlrow.in-view .year:before{background:#e3bf70;box-shadow:0 0 14px rgba(227,191,112,.8)}
+
+  /* Card emphasis when in view */
+  .ab-tlrow .ab-tlcard{transition:transform .5s cubic-bezier(.22,.61,.36,1), box-shadow .5s ease}
+  .ab-tlrow.in-view .ab-tlcard{transform:translateY(-4px);box-shadow:0 28px 56px rgba(34,25,10,.14)}
+  .ab-tlrow.in-view.right .ab-tlcard.dark{box-shadow:0 28px 60px rgba(11,61,36,.32)}
+  .ab-tlrow{position:relative;display:grid;grid-template-columns:1fr 110px 1fr;gap:0;margin-bottom:8px;align-items:stretch;min-height:160px}
+  .ab-tlcard{padding:30px 34px;border-radius:14px;box-shadow:0 14px 34px rgba(34,25,10,.05)}
+  .ab-tlcard h3{font-family:var(--display);font-weight:400;font-size:21px;line-height:1.18;margin:0 0 12px;text-align:center}
+  .ab-tlcard p{font-size:13.5px;line-height:1.6;margin:0;text-align:center}
+  .ab-tlcard.light{background:rgba(255,253,248,.85);color:#3b4a3f}
+  .ab-tlcard.light h3{color:var(--forest-deep)}
+  .ab-tlcard.dark{background:linear-gradient(135deg,#1e5a3a 0%,#0b3d24 100%);color:rgba(255,255,255,.92)}
+  .ab-tlcard.dark h3{color:#fff}
+  .ab-tlrow .spacer{display:block}
+  .ab-tlrow .year{
+    position:relative;z-index:3;display:grid;place-items:center;
+    background:#c2912f;color:#fff;font-family:var(--display);font-size:18px;
+    border-radius:14px;padding:14px 8px;letter-spacing:.12em;line-height:1.05;
+    box-shadow:0 14px 30px rgba(194,145,47,.32);
+    writing-mode:vertical-rl;text-orientation:mixed;
+    align-self:center;justify-self:center;width:42px;min-height:90px;
+  }
+  .ab-tlrow .year:before{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#c2912f;border:3px solid #fffaf0;z-index:2}
+  .ab-tlrow.left .year:before{left:-26px}
+  .ab-tlrow.right .year:before{right:-26px}
+  .ab-tlrow.left .ab-tlcard{grid-column:1;margin-right:8px}
+  .ab-tlrow.left .spacer{grid-column:3}
+  .ab-tlrow.right .ab-tlcard{grid-column:3;margin-left:8px}
+  .ab-tlrow.right .spacer{grid-column:1}
+  /* tail/notch pointing to year pill */
+  .ab-tlrow .ab-tlcard{position:relative}
+  .ab-tlrow.left .ab-tlcard:after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px;height:12px;background:inherit}
+  .ab-tlrow.right .ab-tlcard:after{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px;height:12px;background:inherit}
+
+  /* ── Why It Matters · forest band ── */
+  .ab-why{position:relative;overflow:hidden;background:linear-gradient(135deg,#1e5a3a 0%,#0b3d24 100%);color:#fff;padding:78px 24px;text-align:center}
+  .ab-why:before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 90% 30%,rgba(227,191,112,.10),transparent 40%);pointer-events:none}
+  .ab-why .wrap{position:relative;z-index:2;max-width:1080px;margin:0 auto}
+  .ab-why h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,44px);color:#fff;margin:0 0 26px}
+  .ab-why p{font-family:var(--body);color:rgba(255,255,255,.9);font-size:15.5px;line-height:1.78;max-width:880px;margin:0 auto}
+
+  /* ── Related links ── */
+  .ab-related{padding:90px 0;background:linear-gradient(180deg,#fffdf8,#f7eede)}
+  .ab-related h2{text-align:center;font-family:var(--display);font-weight:400;font-size:clamp(28px,2.8vw,38px);color:var(--forest-deep);margin:0 0 50px}
+  .ab-related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:1240px;margin:0 auto}
+  .ab-relcard{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1/1.05;box-shadow:0 18px 40px rgba(34,25,10,.10);transition:transform .35s ease,box-shadow .35s ease}
+  .ab-relcard:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(34,25,10,.16)}
+  .ab-relcard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+  .ab-relcard:hover img{transform:scale(1.06)}
+  .ab-relcard .label{position:absolute;left:0;right:0;bottom:0;padding:24px 22px 22px;background:linear-gradient(180deg,rgba(11,61,36,.0),rgba(11,61,36,.55) 30%,rgba(11,61,36,.92));color:#fff}
+  .ab-relcard .label h3{font-family:var(--display);font-weight:400;font-size:21px;color:#fff;margin:0 0 6px}
+  .ab-relcard .label p{font-size:12.5px;color:rgba(255,255,255,.78);margin:0 0 12px;line-height:1.4}
+  .ab-relcard .label a{display:inline-flex;align-items:center;gap:6px;font-family:var(--body);font-weight:500;font-size:13px;color:#e3bf70;border-bottom:1px solid rgba(227,191,112,.5);padding-bottom:2px}
+  .ab-relcard .label a:hover{color:#fff;border-color:#fff}
+
+  /* Responsive */
+  @media (max-width:1050px){
+    .ab-who .wrap,.ab-wwd .wrap,.ab-founder .wrap{grid-template-columns:1fr;gap:30px}
+    .ab-wwd .panel{padding:48px 36px}
+    .ab-related-grid{grid-template-columns:repeat(2,1fr)}
+    .ab-timeline:before{left:24px}
+    .ab-tlrow{grid-template-columns:48px 1fr;gap:18px;margin-bottom:24px}
+    .ab-tlrow .year{writing-mode:horizontal-tb;width:auto;min-height:auto;font-size:14px;padding:8px 12px;justify-self:start;align-self:flex-start;margin-top:8px}
+    .ab-tlrow .year:before{display:none}
+    .ab-tlrow.left .ab-tlcard,.ab-tlrow.right .ab-tlcard{grid-column:2;margin:0}
+    .ab-tlrow .spacer{display:none}
+    .ab-tlrow.left .ab-tlcard:after,.ab-tlrow.right .ab-tlcard:after{display:none}
+    .ab-tlcard h3,.ab-tlcard p{text-align:left}
+  }
+  @media (max-width:680px){
+    .ab-who,.ab-founder,.ab-related,.ab-tl-section{padding:64px 0}
+    .ab-wwd{padding-bottom:64px}
+    .ab-related-grid{grid-template-columns:1fr;max-width:380px}
+  }
+</style>
+</head>
+<body>
+<div class="site">
+
+  <!--#HEADER#-->
+
+  <main>
+
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+      <div class="page-hero-media"><img src="/wp-content/uploads/2025/06/abt-img.jpg" alt=""></div>
+      <div class="ph-orbit"></div>
+      <div class="wrap">
+        <div class="breadcrumb"><a href="/">Home</a><span>›</span> About</div>
+        <span class="kicker">About GreenSpace</span>
+        <h1>Where ancient wisdom meets quantum science.</h1>
+        <p class="lead">A next-generation herbal therapeutics company bridging the timeless efficacy of Ayurveda with the precision of modern biomedical sciences.</p>
+      </div>
+    </section>
+
+    <!-- ============ WHO WE ARE ============ -->
+    <section class="ab-who" id="who-we-are">
+      <div class="wrap">
+        <div>
+          <h2>Who We Are</h2>
+          <p>Greenspace Herbs is a next-generation herbal therapeutics company dedicated to bridging the timeless efficacy of Ayurveda with the precision of modern biomedical sciences. Positioned at the forefront of plant-based healthcare, we specialize in developing holistic, clinically supported botanical ingredients designed to address chronic lifestyle disorders, restore balance, and support long-term well-being.</p>
+          <p>By integrating deep Ayurvedic understanding with contemporary technologies such as AI modeling, Raman Spectroscopy and molecular docking, our work under the Quantum Ayurveda™ framework is setting new standards in evidence-based natural medicine.</p>
+        </div>
+        <div class="frame"><img src="/wp-content/uploads/2025/05/Why-Quantum-Ayurveda.jpg" alt="GreenSpace Herbs scientist at work in laboratory"></div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT WE DO ============ -->
+    <section class="ab-wwd" id="what-we-do">
+      <div class="wrap">
+        <div class="frame"><img src="/wp-content/uploads/2025/06/Clinically-Researched-Botanicals.jpg" alt="GreenSpace Herbs research team collaborating"></div>
+        <div class="panel">
+          <h2>What We Do</h2>
+          <p>At Greenspace Herbs, we transform the vast potential of herbal pharmacology through the lens of Quantum Ayurveda by integrating ancient wisdom with modern science to create purpose-built health solutions that are validated, target specific, and energetically aligned.</p>
+          <p>Our portfolio features energized formulations designed to support hormonal equilibrium, neuro-adaptogen support, gut detoxification, inflammatory resolution, and metabolic reprogramming. Each product is developed to resonate at optimal frequencies enhancing cellular receptivity and therapeutic impact.</p>
+          <p>Our teams of Ayurvedic experts, phytochemists, and clinical researchers collaborate to ensure every product is rooted in traditional knowledge, refined with phytochemical accuracy, and delivered through mechanisms that maximize bioavailability, efficacy, safety mechanisms and frequency-specific activation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR JOURNEY · FOUNDER OPENER ============ -->
+    <section class="ab-founder" id="founder">
+      <div class="wrap">
+        <div class="copy">
+          <h2>Our Journey: From Roots to Quantum Realities</h2>
+          <span class="sub">Guided by a Scientific Visionary</span>
+          <p>At the heart of Greenspace Herbs is Mr. Hirehal Nuruddin Shafiulla — a pioneering mind whose interdisciplinary mastery in engineering, chemistry, and integrative medicine gave birth to Quantum Ayurveda™. A formulator and strategist, Shafiulla is redefining how the world understands and uses plant-based medicine.</p>
+          <p>His unique approach blends systems thinking, molecular modeling, and energetic science, fueled by a deep respect for the intelligence of nature. With a passion for how phytochemicals behave at the quantum and subatomic level, he shifted the industry lens from isolated compounds to synergistic plant matrices — botanical formulations that heal holistically and sustainably.</p>
+          <p>Under his leadership, Greenspace is not just another herbal brand — it's a research-powered platform for next-generation phytotherapeutics, integrating Ayurveda, quantum physics, AI-powered discovery, and clean-label nutraceuticals into a single innovation ecosystem.</p>
+        </div>
+        <div class="frame"><img src="/wp-content/uploads/2026/06/Shafi-looking-at-botanicals.jpg" alt="Mr. Hirehal Nuruddin Shafiulla — Founder of GreenSpace Herbs"></div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE OF GROWTH ============ -->
+    <section class="ab-tl-section" id="our-journey">
+      <div class="wrap">
+        <h2>Timeline of Growth &amp; Transformation</h2>
+        <div class="ab-timeline">
+          <div class="ab-tl-spine" aria-hidden="true"><span class="ab-tl-fill"></span></div>
+          <div class="ab-tlrow left" data-reveal>
+            <div class="ab-tlcard light"><h3>Laying the Foundation</h3><p>Greenspace Herbs began as a contract manufacturer focused on pure, high-quality herbal extracts. Greenspace Herbs built strong technical expertise in extraction processes and plant pharmacognosy.</p></div>
+            <div class="year">2006</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="ab-tlrow right" data-reveal>
+            <div class="spacer"></div>
+            <div class="year">2010</div>
+            <div class="ab-tlcard dark"><h3>Research Lab Expansion</h3><p>Established first in-house Quality Control (QC) laboratory and started exploring high value actives. Proprietary extraction processes and standardization methods became part of core capabilities.</p></div>
+          </div>
+          <div class="ab-tlrow left" data-reveal>
+            <div class="ab-tlcard light"><h3>The Formulation Leap</h3><p>Expansion from herbal extracts to outcome oriented solutions and moved into formulation science. This led to the development of finished personal care products such as "Pain &amp; Stress Body Massage Oil"; "Respiratory Wellness", "baby oil" and "hair oil" formulations.</p></div>
+            <div class="year">2012</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="ab-tlrow right" data-reveal>
+            <div class="spacer"></div>
+            <div class="year">2017</div>
+            <div class="ab-tlcard dark"><h3>Investing in Innovation</h3><p>Expanded facilities to meet growing global demand and investing in next-generation herbal actives. Examples include <em>Garcinia cambogia</em> extracts with lead content &lt;0.5 ppm, high-grade <em>Coleus forskohlii</em>, and <em>Boswellia serrata</em> standardized to 80% boswellic acids. These advances laid the groundwork for more targeted, bioavailable, and clinically validated formulations.</p></div>
+          </div>
+          <div class="ab-tlrow left" data-reveal>
+            <div class="ab-tlcard light"><h3>The Birth of Modern Greenspace &amp; AI Innovation</h3><p>Under the leadership of Shafiulla H N and Tahira H S., Greenspace Herbs was reimagined as a science-first phytotherapy company. Introduced AI-powered precision formulations that integrated Ayurveda, phytochemistry, and clinical science.</p></div>
+            <div class="year">2021</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="ab-tlrow right" data-reveal>
+            <div class="spacer"></div>
+            <div class="year">2022</div>
+            <div class="ab-tlcard dark"><h3>Quantum Ayurveda Framework</h3><p>Conceptualised Quantum Ayurveda, a pioneering model combining Ayurvedic wisdom, quantum phytochemistry, and clinical research to enable precision-driven nutraceuticals.</p></div>
+          </div>
+          <div class="ab-tlrow left" data-reveal>
+            <div class="ab-tlcard light"><h3>Mapping 25,000 Bioactive Frequencies</h3><p>The organization created a comprehensive database of 25,000 bioactive frequencies, decoding plant-human interactions and powering AI-driven next generation formulations.</p></div>
+            <div class="year">2023</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="ab-tlrow right" data-reveal>
+            <div class="spacer"></div>
+            <div class="year">2024</div>
+            <div class="ab-tlcard dark"><h3>Resonance Locking Technology</h3><p>Greenspace Herbs developed and clinically validated "Resonance Locking Technology", using advanced analytical techniques such as XRD, FTIR, DSC, and Raman Spectroscopy to deliver bioactives with unmatched precision and measurable outcomes.</p></div>
+          </div>
+          <div class="ab-tlrow left" data-reveal>
+            <div class="ab-tlcard light"><h3>Market Launch</h3><p>Greenspace Herbs began commercializing years of R&amp;D, AI innovation, and clinical validation into precision phytotherapy products designed for global wellness focused on Nutraceuticals.</p></div>
+            <div class="year">2025</div>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY IT MATTERS ============ -->
+    <section class="ab-why" id="why-it-matters">
+      <div class="wrap">
+        <h2>Why It Matters</h2>
+        <p>Greenspace is more than a company — it's a movement that brings together ancient intelligence and modern science, translating the wisdom of nature into formulations that deliver real, measurable wellness. Through the leadership of Hirehal Nuruddin Shafiulla, we continue to question, discover, and formulate not just products — but possibilities.</p>
+      </div>
+    </section>
+
+    <!-- ============ RELATED LINKS ============ -->
+    <section class="ab-related">
+      <div class="wrap">
+        <h2>Related links</h2>
+        <div class="ab-related-grid">
+          <a class="ab-relcard" href="/leadership/">
+            <img src="/wp-content/uploads/2025/06/Leadership-ban-img.jpg" alt="Leadership">
+            <div class="label">
+              <h3>Leadership</h3>
+              <p>Greenspace Herbs is more than a workplace — it's a movement.</p>
+              <span>Read More →</span>
+            </div>
+          </a>
+          <a class="ab-relcard" href="/culture-values/">
+            <img src="/wp-content/uploads/2025/06/Culture-Values.jpg" alt="Culture & Values">
+            <div class="label">
+              <h3>Culture &amp; Values</h3>
+              <p>At Greenspace Herbs, our organizational culture.</p>
+              <span>Read More →</span>
+            </div>
+          </a>
+          <a class="ab-relcard" href="/partner-with-us/">
+            <img src="/wp-content/uploads/2025/06/Partners.jpg" alt="Partners">
+            <div class="label">
+              <h3>Partners</h3>
+              <p>At Greenspace Herbs, we don't just formulate.</p>
+              <span>Read More →</span>
+            </div>
+          </a>
+          <a class="ab-relcard" href="/careers/">
+            <img src="/wp-content/uploads/2025/06/Careers.jpg" alt="Careers">
+            <div class="label">
+              <h3>Careers</h3>
+              <p>Greenspace Herbs is more than a workplace — it's a movement.</p>
+              <span>Read More →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--#FOOTER#-->
+</div>
+
+<script>
+(function(){
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var timeline = document.querySelector('.ab-timeline');
+  var fill     = document.querySelector('.ab-tl-fill');
+  var rows     = Array.prototype.slice.call(document.querySelectorAll('.ab-tlrow'));
+  if (!timeline || !fill || !rows.length) return;
+
+  /* IntersectionObserver fallback to ensure [data-reveal] rows light up
+     even if site.js fires before they exist (shouldn't happen here, but safe) */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    rows.forEach(function(r){ io.observe(r); });
+  } else {
+    rows.forEach(function(r){ r.classList.add('in'); });
+  }
+
+  /* Scroll-driven spine fill + active row tracking */
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var rect = timeline.getBoundingClientRect();
+    var vh   = window.innerHeight;
+    var height = rect.height;
+    // viewport center as anchor for the fill head
+    var trigger = vh * 0.55;
+    var raw = (trigger - rect.top) / height;
+    var progress = Math.max(0, Math.min(1, raw));
+    fill.style.height = (progress * 100).toFixed(2) + '%';
+    fill.classList.toggle('lit', progress > 0.01 && progress < 0.995);
+
+    // active row = closest row center to the viewport anchor
+    var anchorY = trigger;
+    var best = null, bestDist = Infinity;
+    for (var i = 0; i < rows.length; i++) {
+      var rr = rows[i].getBoundingClientRect();
+      var cy = rr.top + rr.height / 2;
+      var d  = Math.abs(cy - anchorY);
+      if (d < bestDist) { bestDist = d; best = rows[i]; }
+    }
+    for (var j = 0; j < rows.length; j++) {
+      rows[j].classList.toggle('in-view', rows[j] === best && bestDist < vh * 0.5);
+    }
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
+</body>
+</html>

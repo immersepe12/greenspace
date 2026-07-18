@@ -1,0 +1,143 @@
+/* =====================================================================
+   Harmonic waves, frequency lines, and scientific particle motifs
+   layered across the homepage. Pairs with home-min.css / home-sci.js.
+   ===================================================================== */
+
+/* ---------- Animated harmonic wave divider (between sections) ---------- */
+.home-min .wave-divider{
+  position:relative;
+  height:88px;
+  width:100%;
+  overflow:hidden;
+  margin:0;
+  pointer-events:none;
+  background:transparent;
+}
+.home-min .wave-divider svg{
+  position:absolute;inset:0;width:200%;height:100%;display:block;
+}
+.home-min .wave-divider .w1{stroke:rgba(194,145,47,.30);stroke-width:1.2;animation:waveDrift 14s linear infinite}
+.home-min .wave-divider .w2{stroke:rgba(31,107,69,.22);stroke-width:1;animation:waveDrift 22s linear infinite reverse}
+.home-min .wave-divider .w3{stroke:rgba(194,145,47,.18);stroke-width:.8;animation:waveDrift 32s linear infinite}
+.home-min .wave-divider .pulse-dot{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 0 rgba(194,145,47,.5);
+  animation:wavePulse 2.4s ease-out infinite
+}
+@keyframes waveDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes wavePulse{0%{box-shadow:0 0 0 0 rgba(194,145,47,.55)}70%{box-shadow:0 0 0 22px rgba(194,145,47,0)}100%{box-shadow:0 0 0 0 rgba(194,145,47,0)}}
+
+/* ===== Quantum-entanglement layer — bridges the hero into the story =====
+   One continuous animated layer (no section / no break). A fixed, full-viewport
+   canvas behind the content; hero-bridge.js anchors the entanglement to the
+   document span from the hero's bottom edge down through the story, so it
+   appears at the end of page one, spills across the seam, and stays as the
+   story's living background. Scroll-mapped fade + draw-in. */
+.home-min .hb-flow{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;display:block;
+}
+
+/* ---------- Frequency spectrum line (small inline accent) ---------- */
+.home-min .freq-line{
+  display:inline-flex;align-items:flex-end;gap:3px;
+  height:18px;margin-left:12px;vertical-align:middle;
+}
+.home-min .freq-line span{
+  width:3px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  border-radius:2px;
+  animation:freqBar 1.4s ease-in-out infinite;
+  box-shadow:0 0 6px rgba(194,145,47,.4);
+}
+.home-min .freq-line span:nth-child(1){height:30%;animation-delay:0s}
+.home-min .freq-line span:nth-child(2){height:60%;animation-delay:.12s}
+.home-min .freq-line span:nth-child(3){height:90%;animation-delay:.24s}
+.home-min .freq-line span:nth-child(4){height:50%;animation-delay:.36s}
+.home-min .freq-line span:nth-child(5){height:80%;animation-delay:.48s}
+.home-min .freq-line span:nth-child(6){height:40%;animation-delay:.60s}
+.home-min .freq-line span:nth-child(7){height:70%;animation-delay:.72s}
+.home-min .freq-line span:nth-child(8){height:35%;animation-delay:.84s}
+.home-min .freq-line span:nth-child(9){height:65%;animation-delay:.96s}
+.home-min .freq-line span:nth-child(10){height:45%;animation-delay:1.08s}
+@keyframes freqBar{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.home-min .freq-line span{transform-origin:bottom}
+
+/* ---------- Section background waveform (faint, full-width) ---------- */
+.home-min .section-wave{
+  position:absolute;left:0;right:0;height:120px;z-index:0;pointer-events:none;
+  opacity:.18;
+}
+.home-min .section-wave svg{width:200%;height:100%;display:block;animation:waveDrift 26s linear infinite}
+.home-min .section-wave.top{top:30%}
+.home-min .section-wave.bottom{bottom:8%}
+.home-min .section-wave path{stroke:var(--gold);stroke-width:1;fill:none}
+
+/* ---------- Scientific particle atoms (decorative SVG accents) ---------- */
+.home-min .sci-atom{
+  position:absolute;width:50px;height:50px;z-index:0;pointer-events:none;
+  opacity:.4;color:var(--gold);
+}
+.home-min .sci-atom svg{width:100%;height:100%}
+.home-min .sci-atom .nucleus{fill:currentColor}
+.home-min .sci-atom .orbit-a{animation:atomSpin 10s linear infinite;transform-origin:center;transform-box:fill-box}
+.home-min .sci-atom .orbit-b{animation:atomSpin 14s linear infinite reverse;transform-origin:center;transform-box:fill-box}
+.home-min .sci-atom .orbit-c{animation:atomSpin 18s linear infinite;transform-origin:center;transform-box:fill-box}
+@keyframes atomSpin{to{transform:rotate(360deg)}}
+
+/* placements */
+.home-min #story .sci-atom.a1{right:6%;top:14%}
+.home-min #story .sci-atom.a2{left:5%;bottom:18%;width:38px;height:38px;opacity:.32}
+.home-min .ingredients .sci-atom.a1{right:4%;top:8%;width:60px;height:60px}
+.home-min .ingredients .sci-atom.a2{left:4%;bottom:14%;width:42px;height:42px;opacity:.28}
+.home-min .science .sci-atom.a1{right:3%;top:6%;width:60px;height:60px;opacity:.35}
+.home-min .accred .sci-atom.a1{left:6%;top:18%;width:46px;height:46px;opacity:.3}
+.home-min .accred .sci-atom.a2{right:8%;bottom:16%;width:38px;height:38px;opacity:.28}
+
+/* ---------- Floating data particles inside sections ---------- */
+.home-min .data-dots{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.home-min .data-dots span{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:var(--gold-soft);box-shadow:0 0 8px rgba(227,191,112,.6);
+  opacity:.7;
+  animation:dotFloat 9s ease-in-out infinite;
+}
+.home-min .data-dots span:nth-child(1){left:8%;top:20%;animation-delay:0s}
+.home-min .data-dots span:nth-child(2){left:18%;top:60%;width:3px;height:3px;animation-delay:1.2s}
+.home-min .data-dots span:nth-child(3){left:34%;top:30%;width:5px;height:5px;animation-delay:2.4s}
+.home-min .data-dots span:nth-child(4){left:52%;top:70%;animation-delay:.8s}
+.home-min .data-dots span:nth-child(5){left:68%;top:25%;width:3px;height:3px;animation-delay:1.6s}
+.home-min .data-dots span:nth-child(6){left:78%;top:55%;animation-delay:3s}
+.home-min .data-dots span:nth-child(7){left:88%;top:35%;width:5px;height:5px;animation-delay:.4s}
+.home-min .data-dots span:nth-child(8){left:25%;top:80%;width:3px;height:3px;animation-delay:2.8s}
+.home-min .data-dots span:nth-child(9){left:62%;top:18%;animation-delay:1.4s}
+.home-min .data-dots span:nth-child(10){left:42%;top:48%;width:3px;height:3px;animation-delay:3.6s}
+@keyframes dotFloat{
+  0%,100%{transform:translate(0,0);opacity:.45}
+  25%{transform:translate(8px,-12px);opacity:.85}
+  50%{transform:translate(-6px,-18px);opacity:1}
+  75%{transform:translate(-12px,-6px);opacity:.7}
+}
+
+/* keep section content above the decoration */
+.home-min .section{position:relative}
+.home-min .section > .wrap{position:relative;z-index:2}
+.home-min .accred .wrap{position:relative;z-index:2}
+
+/* ---------- Sine signature under headings ---------- */
+.home-min .sig-wave{
+  display:block;width:160px;height:14px;margin:10px 0 0;color:var(--gold);
+}
+.home-min .sig-wave path{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+.home-min .section-head.center .sig-wave{margin:14px auto 0}
+
+@media (prefers-reduced-motion: reduce){
+  .home-min .wave-divider svg,
+  .home-min .section-wave svg,
+  .home-min .freq-line span,
+  .home-min .data-dots span,
+  .home-min .sci-atom .orbit-a,
+  .home-min .sci-atom .orbit-b,
+  .home-min .sci-atom .orbit-c{animation:none}
+}

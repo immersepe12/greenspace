@@ -1,0 +1,49 @@
+{
+  "redirectRepos": [
+    "adhatoda-vasica-nees-vasaka-copy-test",
+    "andrographis-paniculata-burm-f-wall-ex-nees-kalmegh-family-acanthaceae",
+    "andrographis-paniculata-burm-f-wall-ex-nees-kalmegh-family-acanthaceae-2",
+    "asparagus-racemosus-willd-shatavari-family-liliaceae",
+    "azadirachta-indica-juss-neem-family-meliaceae",
+    "bacopa-monnieri",
+    "bacopa-monnieri-linn-wettst-brahmi-family-scrophulariaceae",
+    "boswellia-serrata",
+    "boswellia-serrata-roxb-salaiguggul-family-burseraceae",
+    "camellia-sinensis-linn-kuntze-green-tea-family-theaceae",
+    "cassia-angustifolia-senna-family-caesalpinaceae",
+    "coleus-forskohlii-briq-family-labiatae",
+    "eclipta-alba-linn-linn-bhringaraja-family-asteraceae",
+    "emblica-officinalis-gaertn-amla-family-euphorbiaceae",
+    "garcinia-cambogia",
+    "gymnema-sylvestre-r-br-madhunashini-family-asclepiadaceae",
+    "gymnema-sylvestre-retz-r-br",
+    "madhunashini-gymnema-sylvestre",
+    "momordica-charantia-linn-karela-family-cucurbitaceae",
+    "ocimum-sanctum-linn-tulsi-family-lamiaceae",
+    "terminalia-belerica-roxb-bahera-family-combretaceae",
+    "terminalia-chebula-family-combretaceae",
+    "tinospora-cordifolia",
+    "tribulus-terrestris-linn-chota-gokru-family-zygophyllaceae",
+    "trigonella-foenum-graecum-linn-fenugreek-family-fabaceae",
+    "withania-somnifera-dunal-ashvagandha-family-solonaceae"
+  ],
+  "exclude": [
+    "test",
+    "careers-old",
+    "news-letter1",
+    "category_news-1",
+    "consumer-old",
+    "consumer-old_adhatoda-vasica-nees-vasaka",
+    "blog_page_2"
+  ],
+  "noindex": [
+    "dashboard",
+    "category_blog",
+    "category_news",
+    "category_herbal-extracts",
+    "category_uncategorized",
+    "category_consumer",
+    "category_carees",
+    "author_green_space"
+  ]
+}

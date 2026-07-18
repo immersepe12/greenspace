@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quantum Command Centre — GreenSpace Herbs</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="/wp-content/uploads/2025/04/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/dashboard/dashboard.css?v=15" />
+</head>
+<body class="dash-body">
+
+<div class="fx-bg"><div id="fxSwarm"></div><div class="fx-veil"></div></div>
+
+<!-- scroll-progress rail, borrowed from the main site's HUD language -->
+<div class="hud-rail" aria-hidden="true">
+  <span class="hud-rail-top">GS</span>
+  <span class="hud-rail-track"><i id="railFill"></i></span>
+  <span class="hud-rail-pct" id="railPct">0%</span>
+</div>
+
+<div class="boot" id="boot">
+  <div class="boot-core">
+    <div class="boot-ring"></div>
+    <pre class="boot-log" id="bootLog"></pre>
+    <span class="boot-skip">tap to skip</span>
+  </div>
+</div>
+
+<div class="dash">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="dash-top">
+    <div class="dash-brand" id="brandHome" title="Back to overview" role="button" tabindex="0">
+      <img src="/wp-content/uploads/2025/04/logo-green.png" alt="GreenSpace Herbs" class="dash-logo" />
+      <div>
+        <div class="dash-title">Quantum Command Centre</div>
+        <div class="dash-sub">Internal</div>
+      </div>
+    </div>
+    <div class="dash-topright">
+      <div class="role-switch" title="Simulates login roles until the login wall is added">
+        <span class="role-label">Acting as</span>
+        <select id="roleSelect">
+          <option value="shafi">Shafi — CEO · overall approval</option>
+          <option value="amar">Amar — design &amp; language · override</option>
+          <option value="tahira">Tahira — science &amp; claims</option>
+          <option value="jamila">Jamila — project manager</option>
+          <option value="priya">Priya — creator</option>
+          <option value="rahul">Rahul — creator</option>
+          <option value="viewer">Viewer — read only</option>
+        </select>
+      </div>
+      <button class="btn ghost" id="resetData" title="Restore the demo seed data">Reset demo data</button>
+    </div>
+  </header>
+
+  <!-- ============ NAV ============ -->
+  <nav class="dash-nav" id="dashNav">
+    <button class="nav-item active" data-view="overview">Overview</button>
+    <button class="nav-item" data-view="content">Content calendar <span class="nav-badge" id="badgeContent"></span></button>
+    <button class="nav-item" data-view="sales">Sales tracker <span class="nav-badge" id="badgeSales"></span></button>
+    <button class="nav-item" data-view="ads">Ads</button>
+    <button class="nav-item" data-view="analytics">Site analytics</button>
+    <button class="nav-item" data-view="rnd">R&amp;D projects</button>
+    <button class="nav-item" data-view="qc">QC</button>
+    <button class="nav-item" data-view="audit">Audit trail</button>
+  </nav>
+
+  <!-- ============ MAIN ============ -->
+  <main class="dash-main" id="dashMain">
+    <!-- views are rendered here by dashboard.js -->
+  </main>
+
+</div>
+
+<!-- ============ DETAIL DRAWER ============ -->
+<div class="drawer-scrim" id="drawerScrim"></div>
+<aside class="drawer" id="drawer"></aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="/dashboard/dashboard-data.js?v=15"></script>
+<script src="/dashboard/dashboard.js?v=15"></script>
+<script type="module" src="/dashboard/quantum-swarm.js?v=11"></script>
+</body>
+</html>
